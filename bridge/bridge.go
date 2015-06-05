@@ -176,6 +176,7 @@ func (b *Bridge) add(containerId string, quiet bool) {
 func (b *Bridge) newService(port ServicePort, isgroup bool) *Service {
 	container := port.container
 	defaultName := strings.Split(path.Base(container.Config.Image), ":")[0]
+	log.Println("defaultName:", defaultName)
 	if isgroup {
 		defaultName = defaultName + "-" + port.ExposedPort
 	}
